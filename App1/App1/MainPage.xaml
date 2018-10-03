@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <!-- Activity Indicator-->
+    <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" x:Name="activity_indicator" Color="#4D7EE1" />
+    <!-- ListView-->
+    <ListView x:Name="CallLogList" 
+             HasUnevenRows="true" 
+             VerticalOptions="FillAndExpand"
+             IsPullToRefreshEnabled="true"
+             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+             CachingStrategy="RecycleElement">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <!-- Here we make a Horizontal orientation with the help of StackLayout-->
+                    <StackLayout Orientation="Horizontal" Margin="5" HeightRequest="90"  Padding="10">
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding CallTitle}" TextColor="#1C5AD8" LineBreakMode="NoWrap" FontSize="16" />
+                            <Label Text="{Binding CallDescription}" TextColor="#1C5AD8" LineBreakMode="NoWrap" FontSize="13" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
